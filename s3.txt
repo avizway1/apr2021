@@ -1,0 +1,129 @@
+D: 21/04/2021
+
+S3 : Simple Storage Service : Object Based storage : Amazon Version of Google Drive
+
+Object Based Storage : We can store the objects, We cannot install any OS, We cannot run any programs. : S3
+Block Based Storage : THis is designed to run OS / Programs. : EBS, Instance Store
+Storage Over Network : (SAN/ NAS) : RUns over the network and shares to the network running resources.  --> EFS , FSx
+
+
+--> We store data in Buckets.
+--> Bucket = FOlder/Dir with Unique namespace.
+--> We have Unlimited data in S3.
+--> No Pre-Provisioning required. Pay-as-you-go.
+
+Bucket Naming rules: 
+--> Bucket name should be unique.
+--> Min Char : 3, Max 63 Char
+--> No Capital Letters, No Special Char
+--> Should contains .  numbers, Hypens.
+--> No Adjesent ..
+--> Should not start with . / should not end with .
+--> Should not resemble IP Address format. (192.168.0.100)
+
+--> We can upload objects to the s3 bucket.
+--> Min Object size 0 bytes.. Max Size 5 TB.
+
+--> S3/IAM is global service, Does not required any region selection.
+
+--> We can create Max of 1000 buckets per account, Soft limit is 100. Raise support ticket to increase the bucket limit.
+
+FREE TIER :
+--> 5 gb "S3-Standard Storage"
+--> 2000 PUT Requests
+--> 20,000 GET Requests
+
+
+S3 Standard :  Default Storage class, Frequently accessed data.. 
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : >=3 AZ
+
+S3 Standard-IA : Designed to store less frequently accessed data.. Data availabile immediately.. 
+Availability : 99.9%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : >=3 AZ
+
+S3 Onezone-IA : Designed to store less frequently accessed data.. Data availabile immediately..  40% less cost than Standard-IA..
+Availability : 99.5%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : 1 AZ
+
+S3 Glacier : Disigned to archieve the data.. Data will not be availabile immediately..
+We need to initialise restoration to get the data.. Data Retrival takes Minutes to Hours.. 
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : >=3 AZ
+
+S3 Glacier Deep Archieve : Disigned to archieve the data.. Data will not be availabile immediately..
+We need to initialise restoration to get the data.. Data Retrival takes Hours.. 
+Availability : 99.99%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : >=3 AZ
+
+S3 Interlligent Tiering : When we don't have predictable access patterns, We can choose this..
+Availability : 99.9%
+Durability : 99.999999999% (11 9's)
+Data Spread across AZs : >=3 AZ
+
+S3 - RRS : Redused Redundancy Storage : Durability is very less : 99.99%, So not recommended to use. Logs, thumbnails.. Easily Reprodusable data.. !!
+
+_______________________________________________________________________________________
+
+D: 22/04/2021
+
+Standard Object URL : 
+https://s3.ap-south-1.amazonaws.com/avinash.1231/iam.txt
+https://s3.regioncode.amazonaws.com/bucketname/objectname
+
+Virtual path : Works when we don;t have . in the bucket name
+https://avinash.s3.ap-south-1.amazonaws.com/iam.txt
+https://bucketname.s3.regioncode.amazonaws.com/objectname
+
+Block all public access : On .. If we want to make any data puboic accesable, We need to turn this off first, Then edit the object level settings.
+
+Versioning : Keeps track/monitor changes on objects.
+--> If we accidentally delete the object, we can get the object back.
+--> We will have current versioned object and previous verisoned objects.
+--> When we delete Latest/cusrrent version object we will get Delete Marker. Delete the Delete marker to get the object back. (Version : hide)
+--> TO get the object back, Set "Version : Show", Then delete the Delete Marker.
+--> For Previous versioned objects, If we delete, we don;t get any Delete marker.
+
+permanently delete : Objects permanently deletes
+delete : It will gives us Delete Marker.
+
+Cross Region Replication (Crr) / Same region replication (srr) :  
+--> Source bucket and destination bucket shoud enable with versioning.
+--> Be fore enable, Replication whatever the data we have it won't replicate to destination bucket. (Onetime, We can perform copy and paste/ Run "Sync" command)
+
+Tags : Metadata for the resources.
+
+Server Access Logging : If you want to enable logging on individual bucket. 
+
+
+Life Cycle Management rule : 
+Encryption :
+Bucket policy : 
+Static website hosting : 
+Events
+Monitoring :
+Management tools : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,314 @@
+D: 12/04/2021
+
+Storage : 
+
+Computing Resources : Storage , Compute, Databases, Network, Applications or Services..!!
+
+AWS / Azure / GCP / IBM / Alibaba / Fujitsu / Virtustream..!!!
+
+Server : Instance : Azure VM : GCP Engine
+
+Load Balancer : ELB : ALB : LB
+
+
+--> Pay-as-you-go : CLoud works with Pay-as-you-go mechanism.
+
+CAPEX : Capital Expendature : Full Upfront : Invest first to build the infra.. Use the infra to deliver the application, make money with your application..!!!
+--> No CAPEX with Cloud.
+
+OPEX : Operational Expendature : Less OPEX for Cloud. 
+
+
+AWS : 2006
+2003 : Chris pinkman and benjamin black : SQS (SImple QUeue Service).. 
+2006 : AWS Oficially released. (S3, ec2 and SQS)
+2012 : AWS Annual conference AWS Re:Invent
+
+
+Amazon CEO : Jeff Bezos : Andy Jessy
+AWS CEO : Andy Jessy
+
+
+AWS GLobal Infrastructure :
+
+AWS Regions : Geo Location.. Physical location : 
+--> Mumbai : 3 AZs : ap-south-1
+--> 
+
+AZ : Availability Zone : Data Center : 
+--> Mumbai : 3 AZ : ap-south-1a, 1b, 1c
+
+Do we need to learn any Program languages..? 
+
+Operational Job : SysoPs , Solutions Architect, AWS engineer, CLoud engineer, Database enginner, Aws network engineer : NO
+
+AWS Developer : Yes (Python, golang, typescript, java, .netcore) : Cloud Developemnt Kit, IDE Cloud 9.. CICD..  
+
+
+Do we need to learn Linux.?
+
+Yes.. Basic Linux is required.. Part of the course..
+--> Free Linux Course
+
+Am a Developer, is this course helpful.
+AWS Developer : Yes (Python, golang, typescript, java, .netcore) : Cloud Developemnt Kit, IDE Cloud 9.. CICD..  
+
+Am into Operations , WIll this course helpful.
+YES.. 
+
+How many yrs of exp we can add with this course..!!
+3-4 Yrs of exp.. 
+
+What certifications we cover in this course..!! 
+Cloud practitioner, SA-A, SysOps-A, Developer-A.
+700+ questions related to cert exam.. 
+
+Is this course required an AWS account..!!
+YES.. You need to practice. FREE TIER..!!
+
+This course is 95% Hands-On..!! 
+
+Are we covering any migration services..!!
+Yes.. DMS, SMS, storage migration, Hybdrid cloud.
+
+
+COdeCommit, Codebuild, CodeDeploy and CodePipeline
+Cloudformation and lambda
+
+--> Free Jenkins COurse and Free GIT Course.
+
+________________________________________________________________________________________
+
+D: 14/04/2021
+
+AWS Global Infrastructure : 
+
+Region : Geographical location or Physical location.
+--> Every Region contains Minimum of 2 AZs. 
+25 Regions across the globe. 
+
+able to see only 21 regions..!!! 4..?? 
+
+China : 2 Regions : ninxia, Bejing
+Us-Gov-Cloud : 2 regions : HIPAA, fedramp, pci dss
+
+Mumbai : ap-south-1
+N Virginia : us-east-1
+Frankfurt : eu-central-1
+
+Availability Zones / AZ :  AZ is a Data Center or combination of multiple DCs. Every AZ is indipendent to isolate the another AZ failure.
+80 AZs across the globe.
+
+Mumbai : 3 AZs : ap-south-1a, ap-south-1b, ap-south-1c
+N Virginia : 6 AZs : us-east-1a, 1b,1c, 1d, 1e, 1f
+Frankfurt : eu-central-1a, 1b , 1c
+
+
+PoP Location : Point of Presence : 230+ pop location : Edge Locations : CDN (Content Deliver network) : CloudFront
+
+--> Cloudflair, Akamai
+
+____
+
+AWS Free Tier eligibility : 
+
+s3 : 5gb standard storage with 2000 PUT, 20k GET
+ec2 : 750 Hrs/Month, t2.micro windows instance  ( 1 server = 31 Days)
+	750 Hrs/Month, t2.micro Linux instance
+Rds : 750 Hrs/Month, db.t2.micro.. 
+
+______________________________________________________________________________________
+
+D: 15/04/2021
+
+How to create an AWS account..??
+
+https://aws.amazon.com/free 
+
+Step 1 : Email Address, Password, Confirm Password, Account Name
+root user : Email address login
+
+Step 2 : Contact Information : 	Provide the contact information	
+
+Step 3 : Choose the payment option
+	--> CC / DC information (Visa / Master Card / AMEX)	
+	--> To Validate AWS deducts 2 INR / 1 USD. (Refund)
+
+Step 4 : Verify the identity
+	--> Email / Phone.
+	--> Enter captcha, Enter Phone Number,  Call Me Now" --> XXXX on your screen.
+	--> Answer the call and Enter the 4 digit pin in call. 
+
+Step 5 : Choose Support Plan
+
+1) Account and Billing related
+2) Service Limit Increase
+3) Technical Assistance
+
+
+Basic SP : Free, 1 & 2 we will get 24x7 Support.. No Technical assistance.. 
+--> 7 Core area checks with AWS Trusted Advisor.
+--> AWS Knowledge base articles, AWS Developer Forum.. 
+
+Developer SP : cost : $29$/Month.. 1 & 2 we will get 24x7 Support.. 3 --> 12-24 Local business hours support.. Cloud SUpport Associate provides the support.. Unlimited Cases.. 
+--> 7 Core area checks with AWS Trusted Advisor.
+
+General Guidence : < 24 Hrs
+System Impaired : < 12 Hrs
+
+Business SP : cost : $100$/Month.. 1 & 2 we will get 24x7 Support..  Cloud SUpport engineer provides the support.. Unlimited Cases..  Email, Chat and Phone SUpport..
+--> Full checks with AWS Trusted Advisor.
+General Guidence : < 24 Hrs
+System Impaired : < 12 Hrs
+Production System Impaired : < 4 Hrs
+Production System Down : < 1 Hr
+
+
+Enterprise SP : Cost : 15k$/Month.. 1 & 2 we will get 24x7 Support.. Cloud SUpport engineer provides the support.. Unlimited Cases.. Email, Chat and Phone SUpport..
+--> Full checks with AWS Trusted Advisor.
+--> AWS Allocates TAM (Technical Account Manager)
+--> Architectural and Operations Reviews happens. 
+
+General Guidence : < 24 Hrs
+System Impaired : < 12 Hrs
+Production System Impaired : < 4 Hrs
+Production System Down : < 1 Hr
+Business System down : < 15 Min
+
+___
+
+Choose Basic Support Plan..
+
+___
+
+https://aws.amazon.com/console 
+___
+
+--> root User : Use the email address you created for this account.. : Highest permisisons on our AWS account.. We don't use this account for daily activities..!!
+
+--> IAM User : (identity and Access Management)
+
+___
+
+Enable Free Tier alerts on your account..!! 
+
+
+My Billing Dashboard --> Preferences -->  Billing preferences
+--> Enable "Receive Free Tier Usage Alerts" Provide your Email Address. 
+
+--> If you find anyone using AWS for malicious purpose You can report it to AWS Abusive team.
+_______________________________________________________________________________
+
+
+16/04/2021
+
+Enable MFA to our Root Account.
+
+Hardware MFA : Physical device : 
+Virtual MFA : Smart phones.. Google Authenticator, Authy 2-factor, Microsoft Auth..
+yuby2key (u2f) key : physical device : 
+
+
+Root User Vs IAM User.
+
+root user : unrestricted access : Even he can close the AWS account.
+IAM User : Identity and Access Management : We can have 5000 IAM Users in an AWS acc.
+
+--> We always Least privilages mechanism. Whatever permissions required to perform his task/job, we provide only that level of access.
+
+Policy : Document contains set of permissions on our AWS environment. Writtens in JSON format.
+--> AWS Managed Policy
+--> AWS managed - Job Function
+--> Customer Managed Policy
+
+TL : AdministratorAccess 	: IAM User with AdministratorAccess policy
+Storage Admin 	: S3 		: IAM User with S3FullAccess policy
+Compute Admin 	: EC2 		: IAM User with EC2FullAccess policy
+Monitoring Team : ReadOnly Access : IAM User with ReadOnly ACcess policy
+
+
+Security, Identity, & Compliance --> IAM.
+
+
+Username : S3user
+AWS access type :
+--> Management COnsole Access : GUI : Username, pwd & Sign-in : Browser
+--> programatic Access : CLI : Accesskeyid & SecretAccessKey : aws cli, sdk, cdk, 3rd party
+
+Allocate the required permissions : 
+--> Create a group, Add permissions to the Group, Add this user to the group.
+--> COpy Permisisons from existing user.
+--> Attach existing policy directly : 600+  : "S3FULLACCESS"
+
+Add tags 
+
+Review and Create
+
+
+IAM user SIgn-in Link :  https://518084852393.signin.aws.amazon.com/console
+We can create an Alias name for the Above acount id.
+
+https://avizway1.signin.aws.amazon.com/console
+
+
+Task : Create an IAM User with "AdministratorACcess" Policy and try to change the support plan..???
+
+--> Try to access the billing information..?? YES/NO..!!  NO.. 
+How to provide Billing access to an IAM User..??
+
+
+Naresh IT OnlineTraining Team <onlinetraining@nareshit.com>
+Mobile: +91-8179191999  (Whatsapp)
+https://avinash.s3.ap-south-1.amazonaws.com/aws.pdf
+
+_______________________________________________________________________________________
+
+D: 20/04/2021
+
+s3 access but deny ec2 : 
+
+Requirement : Required fullaccess on aws environment, but not on s3 platform.!!
+
+
+Policy : Document contains set of permissions on our AWS environment. Writtens in JSON format.
+--> AWS Managed Policy  : based on service aws provided
+--> AWS managed - Job Function : Based on standard jobs in market, aws prepared and provided. 
+--> Customer Managed Policy : 
+
+Policy Simulator : Test/simulate users permissions to perform the given task.
+
+Credentials report : Detailed report when user logged in, password last used and rotation.
+
+
+Permissions Boundary : We can set maximum permisisons for an IAM user.
+
+Cloudtrail : Logging service of AWS. Enabled by defaultly in all Aws acocunts. It can store last 90 days activities.
+
+
+Task : Create a policy to enable MFA for an IAM User.  Create a Policy to activate MFA for IAM users.
+
+_____________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
