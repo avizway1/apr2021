@@ -100,14 +100,137 @@ Tags : Metadata for the resources.
 
 Server Access Logging : If you want to enable logging on individual bucket. 
 
+_______________________________________________________________________________________
+D: 23/04/2021
 
-Life Cycle Management rule : 
-Encryption :
-Bucket policy : 
-Static website hosting : 
-Events
-Monitoring :
-Management tools : 
+Life Cycle Management rule : We can automatically trasit objects from one storage class to another storage class.
+** Refer the Image.
+
+Task : Create a bucket, Upload the data.. Current version data and previous version data shuld delete immedeate next day. 
+
+___
+
+ENcryption : 
+
+Free Tier : ss3-s3 , aws/s3
+
+In-Transit Encryption : No need to worry about this
+	--> https : ssl / tls 
+
+At-Rest Encryption / Server Side Encryption (SSE) : 
+
+--> SSE-S3 :  S3 service will generate the encryption keys. Whoever have the access on s3 platform he can decrypt/view the data. 
+--> SSE-KMS (Key Management Service):  
+	--> aws/s3 : KMS service will generate the encryption keys. Whoever have the access on s3 platform he can decrypt/view the data.
+	--> kms/cmk (Customer Managed key): KMS service will generate the encryption keys. Whoever have valid permissions on Encryption key and s3, only they can access the data.
+
+--> SSE-C : Customer need to generate the encryption key material and he need to upload it to KMS. Whoever have valid permissions on Encryption key and s3, only they can access the data.
+
+
+Client Side Encryption : Before uploading the data to s3 plartform, We can encrypt the data in local environment. Client is responsible for this encryption/decryption.
+
+
+Key type : Symmetric : 
+Symmetric : A single encryption key that is used for both encrypt and decrypt operations
+Asymmetric : A public and private key pair that can be used for encrypt/decrypt or sign/verify operations
+
+--> Key administrators : WHo can Administrate / manage this key (Delete/allocating permisisons to another users).
+
+--> Key usage permissions : Who can use this key. Who can decrypt the data.
+
+_______________________________________________________________________________________
+
+D: 26/04/2021
+
+Requirement : Allow full access on s3 platform, But not on 1 bucket. Deny PUT operation (upload) on this specific bucket. 
+
+Bucket policy : Writtens in JSON format.	
+
+ARN : Amazon Resource Name
+
+Bucket ARN : arn:aws:s3:::user1.bucket231
+
+https://awspolicygen.s3.amazonaws.com/policygen.html
+
+Effect : ALLOW / DENY 		: Deny
+Principal : IAM User/Group 	: arn:aws:iam::518084852393:user/user1
+to whom you want to take deny/allow operation
+
+Action : PUt Object
+
+Amazon Resource Name (ARN) :
+On what resource you want to apply these actions for the principal users/groups.
+
+
+Bucket Level Operation : arn:aws:s3:::user1.bucket231
+Object level operation : arn:aws:s3:::user1.bucket231/*
+
+______
+
+Intelligent-Tiering Archive configurations : 
+
+Intelligent Tier Archive Access tier
+When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
+____
+
+Event notifications : When any defined event happened on s3 bucket, we can get notifications.
+--> SQS
+--> SNS : Simple Notification Service.
+--> Lambda
+
+SNS : Create a topic, Add subnscribers to the topic, We can send email to all the subscribers.
+
+____
+
+Transfer acceleration : We can use edge locations to upload/download the data for this bucket. 
+** If we want to use this feature, Bucket name should not contain .
+For gui/browser, AWS users endpoint automatically if we enable.
+FOr cli : We need to define "--endpoint avinash.s3-accelerate.amazonaws.com" 
+
+http://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html
+
+_____
+
+Static website hosting : S3 platform supports static website only.
+
+DOmain Name should be same as bucket name, if future if you want to map a domain name.
+(Route53)
+
+
+http://avinash.com.s3-website.ap-south-1.amazonaws.com
+
+http status codes :
+
+2XX : OK/Success
+3XX : Redirections
+4XX : Client side error
+5XX : Server Side error
+
+https://www.free-css.com/free-css-templates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
