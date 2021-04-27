@@ -196,7 +196,6 @@ Static website hosting : S3 platform supports static website only.
 DOmain Name should be same as bucket name, if future if you want to map a domain name.
 (Route53)
 
-
 http://avinash.com.s3-website.ap-south-1.amazonaws.com
 
 http status codes :
@@ -207,6 +206,102 @@ http status codes :
 5XX : Server Side error
 
 https://www.free-css.com/free-css-templates
+
+______________________________________________________________________________________
+
+D: 27/04/2021
+
+Object Lock : Protect the data. 
+--> Versioning must be enable if we want to use object lock.
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period. Including root user.
+
+__
+
+Access control list (ACL) : 
+
+aws s3 ls s3://publicbucket	--> List all the data from bucket
+
+--> S3Broswer, Cyberduck, winscp, cloudberry explorer
+
+Cananical id : Designed to share s3 buckets with nother aws accounts. 
+
+___
+
+Cross-origin resource sharing (CORS) : 
+
+CLoudwatch : Monitoring service in AWS.
+
+Storage Class Analysis : Gives storage class, and access patterns report of this bucket.
+
+Inventory configurations : we will get complete inventory report of this s3 bucket objects. (Daily, weekly).
+
+___
+
+What perf we can expect from s3 bucket.?
+
+Every Single prefix will the below perf:
+3500 PUT/Copy/post/delete Operations per Second.
+5500 GET/Head Operations per Second
+
+--> If we required a bucket with 55,000 GET operation, Create 10 Prefixes in bucket.
+
+--> Use Prefixes, and Increase the randomness in the object name for the best performance.
+
+___
+
+Read-after-write consistency for PUT of new Object and Delete of an Object.
+
+If we upload any data to s3, if you try to list, it will be available immedetely/.
+If we delete, If won't show.
+
+Eventual consistency for Delete an Bucket.
+--> If you delete a bucket and immediately list all bucket command executed, The deleted bucket may appear in the list.
+
+___
+
+Import/export large data to s3 platform. 
+
+--> Amazon Snowcone, Snowball edge, snowmobile : 
+8 tb snowcone,
+40-100 TB Snowball edge..
+10 pb data : snowmobile
+
+1 pb data with 1 gbps internet line with 80% internet utilisation : 20-23 Yrs to upload data
+
+___
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
