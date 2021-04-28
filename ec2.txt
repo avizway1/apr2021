@@ -1,0 +1,90 @@
+ec2 : Elastic compute cloud : 
+
+Azure VM = GCP Engine = Virtual Machine = server = box = ec2 Instance
+
+Pay-as-you-go : 
+
+server = Unpredictable = choose a server -> upgrade / downgrade
+
+Vertical scaling or horizontal scaling : easy
+________
+
+On-Demand ec2 intances : When we don't have predictable workload, resource utilisation.. Then we can choose this on-demand instances. When we testing our application for the first time..!!
+Pricing : /Sec (with Min of 60 Sec).. /hr
+
+Reserved instances (RI) : When we have stable and predictable workload, When we decided to use the resource for longer duration..!!
+Duration : 1 Yr / 3 yrs
+	Standard RI : We cannot change the configuration.
+	Convertable RI : We can upgrade the configuration.
+	Scheduled RI : repeated resquests/persistent requests.. (N Virginia)
+
+Pricing : all/Full Upfront : Pay full amount. No monthly charges.
+	  Partial Upfront : Pay 30-50 amount now. Pay amount monthly basis with redused 		hourly price.
+	  No Upfront : Pay everything monthly basis only.
+
+--> If you changed your mind after purchasing reserved instance, we can sell these instances in AWS Marketplace.
+
+
+Spot Instances : We need to bid agaist aws pricing. If we have flexible start/stop duration, If we are looking for high configuration instances for low prices.  IF aws spot price is equal / less than your quoted price, aws will allocate an ec2 instance.
+--> If price increased, aws terminate our ec2 instance.
+
+--> 1 hr 30 Min : AWS Price Increased and AWS terminated instance, We get charged for only 1 Hr.
+--> 1 hr 30 Min : AWS Price Not Increased and YOU terminated instance, We get charged for only 1 Hr 30 min.
+
+
+___
+
+ec2 is a region specific service : 
+Mumbai & N Virginia
+
+__
+
+
+General Purpose : Stable/balanced performance of compute, memory and network resources.
+Type : t2, t3, m5
+
+Compute Optimized : We will get more CPU performances from these instances. We will have high perf processors in these instances.
+Type : c4, c5, c6  (Compute / CPU)
+
+Memory Optimized : We will get more RAM perf. Workloads required to process large set of data via memory.
+Type : r4, r5, r6, x1, z1 (RAM)
+
+GPU Optimized / Accelerated computing : We will get more graphic processings, Efficient for data pattern matching, High level gaming.
+Type : p2, p3, p4, g3, g4, f1
+
+Storage optimized : we will get more Storage/ Hard Disk performance. FOr the application required more IOPS, we use this types.
+Type : d2, d3, i3
+
+
+AWS Free Tier : 
+750 Hrs per Month with t2.micro for windows Instance
+750 Hrs per Month with t2.micro for Linux Instance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
