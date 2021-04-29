@@ -60,6 +60,85 @@ AWS Free Tier :
 750 Hrs per Month with t2.micro for windows Instance
 750 Hrs per Month with t2.micro for Linux Instance
 
+______________________________________________________________________________________
+
+D: 29/04/2021
+
+
+
+Step 1 : Choose an AMI (Amazon Machine Image) 		: OS  Win 2016 base
+
+Step 2: Choose an Instance Type				: t2.micro (1 vCPU, 1 RAM)
+
+Step 3: Configure Instance Details
+
+Shutdown behavior : What happens when we initiate shutdown from os levl. : STOP/Terminate
+Enable termination protection : Protect instance from accidental termination. : yes
+
+Step 4: Add Storage
+
+	WIndows : root : COntains OS : 30 Gb
+
+Step 5: Add Tags : We can add max of 50 tags. Key and Value pair.
+
+Name = 
+Platform = Windows / linux
+Cost Center = AAZAA
+Application = 
+Owner/poc = 
+
+Step 6: Configure Security Group : Firewall at OS level. (0-65535)
+
+Linux : ssh : Secure shell : 22	--> TO connect to Linux Server
+Windows : RDP : Remote desktop protocol : 3389 --> To connect to Windows Server
+http : Webserver : 80
+https : Secure over http : 443
+mssql : Microsoft sql : 1433
+mysql : oracle mysql : 3306
+
+Step 7 : Review and Launch with Keypair.
+
+Public Key : it store with AWS. Instance will store this.
+Private Key : It is with us. We need to browse the private keypair to get the initial password. (.pem)
+
+
+Default Username and Password..??? 
+Un : Administrator
+pwd : We get the password from the keypair.
+
+Public IP : Unique across the globe.  
+Private IP : Unique within the network. Internal communication. 
+
+option 1 : run --> mstsc --> enter 
+option 2 : goto windows --> search for "remote desktop connection"
+option 3 : Download the mstsc file from console, open it, enter the password.
+
+
+
+Stop : We can stop the instance, when required you can start the instance and you can continue thw work.
+Terminate : Deleting instance completely.
+
+How to the instance type..? 
+--> We need to stop the instance first, then we can change the instance type.
+We takes weekly maintenance window, then we perform such type of operations.
+
+
+ec2 instance isolation process..!!
+
+Hostbased hypervisor : Vmware workstation, oracle virtualbox, kvm 
+Bare metal hypervisor (type 1 hypervisor): ecxi, hyper-v, xen, nitro
+
+Tenancy : 
+--> Shared tenancy (Default tenancy) : Underlying hardware shares with multiple customers ec2 instances.
+--> Dedicated Tenancy : underlying hardware will not share with any other customer. Dedicated to our aws resources.
+	--> Dedicated Instance : 
+	--> Dedicated Host : Visibility of sockets, cores, host ID.. 
+
+
+Task : Launch windows server 2016 base, Login to the ec2 instance and change the password. Logout from the ec2 instance.. Try to connect ec2 instance using the keypair pwd..!!! 
+
+Task 2 : Create a local user, provide rdp permisisons to get connect to the instance, provide the local admin rights also.. When administrator session is active, try to connect as newly created user. 
+
 
 
 
