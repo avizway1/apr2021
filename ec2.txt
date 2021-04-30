@@ -135,9 +135,72 @@ Tenancy :
 	--> Dedicated Host : Visibility of sockets, cores, host ID.. 
 
 
-Task : Launch windows server 2016 base, Login to the ec2 instance and change the password. Logout from the ec2 instance.. Try to connect ec2 instance using the keypair pwd..!!! 
+Task : Launch windows server 2016 base, Login to the ec2 instance and change the password. Logout from the ec2 instance.. Try to connect ec2 instance using the keypair pwd..!!!
 
 Task 2 : Create a local user, provide rdp permisisons to get connect to the instance, provide the local admin rights also.. When administrator session is active, try to connect as newly created user. 
+
+_______________________________________________________________________________________
+
+D: 30/04/2021
+
+Security Group : SG are firewall at Instance level.
+
+Inbound rules and Outbound rules. 
+--> We need to takes care about the inbound rules.
+
+--> Only we can allow the traffic using SGs. We don't have deny option.
+
+myip : Picks currently connected network public ip address. 
+** --> CHangs to the SG takes effect immediately. 
+
+Within the ec2 instance we can use loop back ip address : 
+http://localhost/ http://127.0.0.1
+
+--> From outside world, use Public Ip address to access the webserver.
+
+C:\inetpub\wwwroot : Public document root path.. Place your webpages in this location.
+
+___________
+
+EIP : Elastic IP Address : Dedicated IP address for our resources. 
+** NO FREE TIER ELIGIBILITY.
+
+ENI : Elastic Network Interface : 
+--> Ec2 instance and ENI should be in same AZ. Then only we can associate eni with instance. 
+
+__________
+
+Monitoring ec2 instance : 
+--> CLoudwatch is the dedicated service to monitor all aws resources.
+--> 2 types of monirotings
+	--> Basic Monitoring : Graphs refresh with 5 Min interval
+	--> Detailed / Enhanced Monitoring : Graphs refresh with 1 Min interval
+--> We can monitor CPU, Network, Disk but not Memory resource/utilization.
+--> If we want to monitor Memory/RAM utilisation, We need to run Cloudwatch agent with in the ec2 instance, it generates the custom metrics.
+
+Req: WHen CPU utilisation is 90% or more for 15 minutes.. I want to reboot the ec2 instance.
+
+________
+
+Status Check on ec2 instance :
+
+--> Instance status checks : Instance health status. : reboot 
+--> System Status check : Health Status of hardware/host. : Stop and Start the instance.
+	(When we perform stop/start option, Instance look for healthy hardware. If it detects any issues on existing hardware, it migrates to another h/w automatically.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
