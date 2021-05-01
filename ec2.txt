@@ -188,6 +188,116 @@ Status Check on ec2 instance :
 --> System Status check : Health Status of hardware/host. : Stop and Start the instance.
 	(When we perform stop/start option, Instance look for healthy hardware. If it detects any issues on existing hardware, it migrates to another h/w automatically.)
 
+______________________________________________________________________________________
+
+D: 01/05/2021
+
+ELastic Block Service : EBS volumes
+IOPS : Input and output operations per second
+
+root volume : COntains Operating System : gp2, gp3, io1, io2 & standard
+Additional VOlume : st1 & sc1
+
+
+General Purpose SSD : (gp2 / gp3) : Low latency interactive applications, Dev and test environment..!!
+Min : 1 GiB, Max: 16 TiB... Max IOPS: 16,000 IOPS
+gp2 --> works 1 : 3 ration (1 gb volume = 3 iops), with min of 100..
+for gp3, we have an advantage, we can mention/choose required IOPS count.
+__
+
+Provisioned iops : (io1 & io2) : workload that requires Specific IOPS count.. or if we need more than 16,000 iops for our ec2 instance.. I/O Intensive database workloads..
+Min : 4 GiB, Max: 16 TiB... Max IOPS: 64,000 IOPS
+__
+
+Magnetic : Standard : Less freq accessed data, Low cost storage solutions.. 
+Min : 1 GiB, Max: 1 TiB...
+__
+
+Throughput optimized HDD : st1 : Bigdata, Data warehousing, log processing.. 
+Size : Min 125 GiB - 16 TiB.. IOPS : 500.. Throughput : 500 MB/S..
+
+Cold HDD : sc1 : THroughput orientes storages, but with Less Frequently accessed.. Lower cost than st1.. 
+Size : Min 125 GiB - 16 TiB.. IOPS : 250.. Throughput : 250 MB/S..
+
+_____________________
+
+Free Tier : 30 Gib /Month.. General purpose and Magnetic Storage.. 
+
+__
+
+We need to make newly added volume available at OS level.
+
+run --> diskmgmt.msc --> Make "online", "Initialise disk", Write File System.
+
+OS : FAT, FAT 32, NTFS, ReFS
+Linux : ect3, ext4, xfs
+__
+
+Increase the size of an Existing volume..??
+--> First increase size in Console, Then Increase at OS level.
+
+__
+
+VOlume 1 is with Instance 1.. Same volume required for Instance 2..!!! 
+--> Yes, It's possible.. But Both the Instances should be in Same AZ.
+
+__
+
+1a-instance and 1b-instance.. 1a instance volume need to detach and it should attach to 1b-instance.. (Our instances are running in different AZs)..!!
+
+Choose the Volume --> Create a Backup (snapshot) --> Create a volume in desired AZ.
+
+Snapshot : Backup copy of our EBS volume.
+
+__
+
+Instance-1 is in Mumbai Region.. Instance-2 is in Another Region..!!!
+
+Choose the Volume --> Create a Backup (snapshot) --> COpy the snapshot to desired region --> Create a volume in desired Regions AZ.
+
+__
+
+Instance-1 is in Account-1... Instance-2 is in Account-2...!!!! 
+
+Choose the Volume --> Create a Backup (snapshot) --> Choose "Modify permissions" option, Provide the 12 digit aws account id-2 thn Save --> Find the snapshot in account-2 region --> Create a volume in desired Regions AZ.
+
+____
+
+You have a volume, that volume you want to share with everyone who have an aws account..!!
+
+Choose the Volume --> Create a Backup (snapshot) --> Choose "Modify permissions" option, select "Public" --> Save
+
+________________
+
+Can we decrease the size of an EBS volume..??
+Ans : NO.. Only increase is possible.
+
+_________________________________________________________________________________
+
+Task : Launch an ec2 instance, Make it as webserver, test the output using Public IP address.
+
+Task 2 : Launch an ec2 instance in ap-south-1a... Another ec2 instance in ap-south-1b..
+Create a volume in ap-south-1a.. Attach it to 1a instance and make it available.. Write some data into it..
+Make Same volume available to 1b instance..!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
