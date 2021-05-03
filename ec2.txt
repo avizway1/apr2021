@@ -280,9 +280,38 @@ Task 2 : Launch an ec2 instance in ap-south-1a... Another ec2 instance in ap-sou
 Create a volume in ap-south-1a.. Attach it to 1a instance and make it available.. Write some data into it..
 Make Same volume available to 1b instance..!!
 
+_________________________________________________________________________________________
+
+D: 03/05/2021
+
+snapshots : 
+--> AWS uses s3 platform to store the snapshots. (We cannot find these snapshots in our s3 buckets).
+--> Snpashots are point-in-time copies.
 
 
+DLM : Data Lifecycle Manager : To automate the Snapshot creation for our ebs volumes. 
+--> We can take backup of individual ebs volumes / Instances.
+--> We cannot share the default encryption snapshots with any aws acocunts/ we cannot make it public.
+--> If we have a snapshot with CMK (Customer managed keys), We can share it with Another AWS account user.. But you need to share the Customer managed ebcryption keys. We cannot make it public.
 
+For NonProd : Retention period : 14 Days
+For Prod : Retention period : 1 Month
+
+__
+
+Golden AMI : Customised AMI (Amazon Machine Image) : OS
+
+Requirement : 10 ec2 instance.. CUstom Wallpaper.. IIS/webserver.. Putty.. Internal application.. Local users.. With Custom Password..!!!
+
+CIS : Centre for internet security : Standard for every OS.!! : 800-1000 pages doc for every os
+
+Plain ec2 instance --> Perform all customisation --> Golden AMI (template)
+
+
+Task : Create a DLM policy to take a backup copy of an ec2 instance, which contains tags as mentioned. and backup retention should be 1.
+
+Key 		: Value
+Backup_job 	: Application X
 
 
 
