@@ -313,6 +313,84 @@ Task : Create a DLM policy to take a backup copy of an ec2 instance, which conta
 Key 		: Value
 Backup_job 	: Application X
 
+________________________________________________________________________________________
+
+D: 04/05/2021
+
+Requirement : 10 ec2 instance.. CUstom Wallpaper.. IIS/webserver.. Putty.. Internal application.. Local users.. With Custom Password..!!!
+
+Recommended : Stop ec2 instance, before taking Golden AMI. (not mandatory)
+
+--> GoldenAMIs will have SNapshots in backend. We cannot delete these snapshots.
+
+
+You have an ec2 instance in Mumbai region, Same need to copied to another region..!! 
+--> Create a GAMI of Mumbai region instance, Copy the AMI to desired region.
+
+
+You have an ec2 instance in Account 1, Same need to copied to Account 2..!! 
+--> Create a GAMI of Account 1 instance, Copy the AMI to desired Account 2. (From what region (acc 1) you are sharing, in same region it will copy in acc 2)
+
+We can make these GAMI public.
+
+____________________________________________
+
+How to launch and Connect to Linux ec2 instance.
+
+Opensource : We can see how prog working, Modify the prog working structure, We can share it, We can use for any purpose. --> Amazon Linux 2  (Cent OS / Redhat)
+
+Step1 : Choose AMI : Amazon Linux 2 AMI
+Step2 : CHoose t2.micro
+Step 3 : Configure 
+Step 4 : Choose volume (8 gb volume)
+step 5 : Add Tags
+Step 6 : Configure the Security Groups
+
+	Linux : SSH (Secure Shell) : Port 22 : (Anywhere/custom/myip)
+
+Step 7 : create a newkeypair and launch instance. (.pem)
+
+
+How to connect to Linux Instance.
+
+Option 1 : Install "Openssh" in windows laptop, use "Command Prompt". (.pem)
+Option 2 : Install GIT for Windows in your laptop, Use GIt Terminal. (.pem)
+	--> https://git-scm.com/downloads
+Option 3 : DOwnload and run "Putty" application. Putty WOn;t support .pem format file, So 	convert the .pem to .ppk ("PuttyGen")
+Option 4 : Many 3rd party tools to connect to Linux instance (MobaXterm, Kitty, puttyttay, extraputty, solar-putty) (.ppk)
+
+Mac / Linux OS : We can use Default "terminal". No additional s/w required.
+
+Command : ssh -i keypair.pem username@instance-public-ip
+ssh -i Linuxkp.pem ec2-user@13.233.22.173
+
+Option 3 : Navigate to putty.org.. Download and install putty in your local device. 
+
+
+
+Task 1 : Launch an ec2 instance, Install IIS, Putty, Custom USer, Set custom password, custom wallpaper.. Create a GoldenAMI.. Launch an ec2 instance.. and verify you got all settings or not..!!!!
+
+Task 2 : Launch Amazon Linux 2 Instance, Connect to the instance. 
+
+Linux Course : MAY2021
+https://www.udemy.com/course/linuxwithavinash/?couponCode=MAY2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
