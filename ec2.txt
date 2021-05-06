@@ -421,28 +421,83 @@ cd /var/www/html/
 
 https://linuxsurvival.com/
 
-
 Task : Launch a linux ec2 instance and make it as webserver, deliver the custom webpage.
+________________________________________________________________________________________
+
+D: 06/05/2021
+
+lsblk		--> List block based devices
+
+df -Th		--> List the available volumes
+
+/dev/xvda1	--> root volume (/)
+/dev/xvdf	--> new Volume name 
+
+In windows OS, we mount new volumes to drive letters.. But in Linux OS, We mount volumes to Directory. 
+
+mkdir newvolume
+
+file -s /dev/xvdf  	--> If this command returns with "data", no file system.
+			--> If this returns ext3/xfs filesystem.. We have a file system.
 
 
+mkfs -t xfs /dev/xvdf		--> Make file system and write it to Additonal volume
+
+mount /dev/xvdf newvolume/	--> mount addl volume to directory
+
+--> Above mount is temp mount only.. it won't available after the instance reboot.
+--> To make this volume perm mount to the directory, Add entry in "/etc/fstab" file.
+--> Get the entry information from "/etc/mtab" file. 
+
+--> cat /etc/mtab		--> Grab the entry related to volume
+
+/dev/xvdf /home/ec2-user/newvolume xfs rw,relatime,attr2,inode64,noquota 0 0
+
+--> vim /etc/fstab.. Write the above entry, save and quit the editor
+
+__________
+
+We can use "xfsprogs" to increase existing volume size. 
+yum install xfsprogs
+
+--> xfs_growfs -d /volume-Mountpoint
+--> xfs_growfs -d /home/ec2-user/newvolume
+
+_______________________
+
+GoldenAMI on Linux : 
 
 
+How to recover a Linux instance, if we lost Keyapir..!!!
+Ans : Choose the Instance --> Create a GAMI --> Launch from GAMI with New Keypair.
+
+_______
+
+Make linux instance as webserver : 
+
+Userdata : We can pass command while launching the instance.. 
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my webserver</h1>" > /var/www/html/index.html
 
 
+Windows : 
+<script> commands </script>
+<powershell> commands </powershell>
+
+<powershell>
+tzutil /s "India Standard Time"
+</powershell>
 
 
+If you want to execute these scripts after every reboot.. We need to use #cloud-init for Linux... <Persist>true</persist> for windows instance.
 
+Tells us what userdata is passed to this ec2-instance : http://169.254.169.254/latest/user-data
 
-
-
-
-
-
-
-
-
-
-
+curl http://169.254.169.254/latest/user-data
 
 
 
