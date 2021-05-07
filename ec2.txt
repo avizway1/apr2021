@@ -456,6 +456,7 @@ mount /dev/xvdf newvolume/	--> mount addl volume to directory
 --> vim /etc/fstab.. Write the above entry, save and quit the editor
 
 __________
+--> Increase the volume size the "Cosole" first, then execute the below command..!!
 
 We can use "xfsprogs" to increase existing volume size. 
 yum install xfsprogs
@@ -481,7 +482,7 @@ Userdata : We can pass command while launching the instance..
 yum install httpd -y
 service httpd start
 chkconfig httpd on
-echo "<h1>This is my webserver</h1>" > /var/www/html/index.html
+echo "<h1>This is my webserver 1b</h1>" > /var/www/html/index.html
 
 
 Windows : 
@@ -498,6 +499,60 @@ If you want to execute these scripts after every reboot.. We need to use #cloud-
 Tells us what userdata is passed to this ec2-instance : http://169.254.169.254/latest/user-data
 
 curl http://169.254.169.254/latest/user-data
+
+
+_______________________________________________________________________________________
+
+D: 07/05/2021
+
+ELB : 
+
+Classic ELB (Previous generation): HTTP, HTTPS, and TCP
+Application ELB (ALB) : HTTP, HTTPS
+Network ELB (NLB) : TCP, TLS, UDP
+
+
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my webserver 8080</h1>" > /var/www/html/index.html
+
+__
+
+--> We won't get any IP addresses for ELB. We will get a DNS name.
+--> Instance status : InService / OutOfService
+
+Cross-Zone Load Balancing : Traffic distributes evently across the azs instances if we enable this feature.
+
+Sticky Sessions : Session sticks to one of the webserver. 
+
+______
+
+Application ELB : http and https
+
+ALB Algorithm : 
+--> Round robin
+--> Least outstanding requests
+
+
+Task : Launch 3 Webservers in ap-south-1a and 1b... Create an ALB with 3 Target Groups..
+
+Traffic coming on 80 --> tg1.. 8888 --> tg2 .. 8080 --> tg3
+
+_______________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
 
 
 
