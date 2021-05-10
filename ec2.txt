@@ -543,6 +543,31 @@ Traffic coming on 80 --> tg1.. 8888 --> tg2 .. 8080 --> tg3
 
 _______________________________________________________________________________________
 
+D: 10/05/2021
+
+Network Load Balancer : (NLB) : TCP, UDP, TLS Protocols.. 
+--> We can have a fixed IP address for our NLB.**
+
+___________
+
+ASG : AutoScaling Group : 
+
+--> Create a GoldenAMI
+--> Create an ELB (Plain /empty elb)
+--> Create an ASG
+	--> Create a Launch Configuration (Settings to launch instance in ASG)
+	--> Create an ASG
+
+
+Task: Create ASG as we discussed. : Your application always up and running with 2 ec2 instances. 
+
+
+
+
+
+
+
+
 
 
 
