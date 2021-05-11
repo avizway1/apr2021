@@ -561,14 +561,40 @@ ASG : AutoScaling Group :
 
 Task: Create ASG as we discussed. : Your application always up and running with 2 ec2 instances. 
 
+______________________________________________________________________________________
+
+D: 11/05/2021
+
+EFS : Elastic File System : 
+--> Works with NFSv4.1 (Network File System) Protocol
+--> EFS supports only Linux OS. 
+--> For windows we have FSx Service. FSx works with SMB protocol. 
+
+Regional : Stores data redundantly across multiple AZs
+One Zone : Stores data redundantly within a single AZ
+
+
+EFS Storage classes:
+--> EFS
+--> EFS-IA
+
+
+mkdir (mountpoint)
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-7e5562af.efs.ap-south-1.amazonaws.com:/ instance2
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-7e5562af.efs.ap-south-1.amazonaws.com:/ /var/www/html/
+
+________
+
+ElasticBeanstalk : PaaS : AWS Have pre configured platforms in beanstalk service. choose the platform and deploy the application. 
+
+--> No OS level operations required (Patching/updating/security)
+--> we will get DNS endpint name, using endpoint, we can access application.
 
 
 
-
-
-
-
-
+Task : Make both the servers as webservers.. and mount EFS to common path and deliver common webpage..!!
 
 
 
