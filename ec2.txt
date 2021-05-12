@@ -596,6 +596,70 @@ ElasticBeanstalk : PaaS : AWS Have pre configured platforms in beanstalk service
 
 Task : Make both the servers as webservers.. and mount EFS to common path and deliver common webpage..!!
 
+_______________________________________________________________________________________
+
+D: 12/05/2021
+
+https://aws.amazon.com/cli	--> Download and install cli tools for aws. 
+
+aws --version
+aws configure			--> To configure cli
+--> AccessKeyID
+--> SecretAcessKey
+--> Default Region	: 
+--> Output format	: json/table
+
+aws servicename command
+
+aws s3 ls			--> list all the buckets
+aws s3 ls s3://bucket		--> List all the objects from the bucket
+aws s3 cp source dest		--> copy data from source to destination
+aws s3 sync source dest		--> Data will sync from source to destination
+aws s3 mb s3://bucketname	--> makebucket
+aws s3 rb s3://bucketname	--> removebucket
+
+aws ec2 terminate-instances --instance-ids i-ahdgfh
+
+Credentials are storing in plain text format, so its not recommanded to use CLI. 
+__
+
+Roles : Secured way to provide access on our resources to an ec2 instance.
+
+**Roles are secured comapre to cli. We always use roles only. 
+
+
+Task : Launch an ec2 instance using Cli. 
+(ami-id, securty-group-id, subnet-id, keypairname)
+
+Task 2 : Create an index.html file and upload the file to s3 bucket. While launcging the instance, Use the "userdata" to make it as webserver and get the index.html file to webserver path (/var/www/html/) using userdata.
+
+Task 3 : Configure a Cronjob/taskscheduler job to sync the data between s3 bucket to local path everyday at 06:00 AM.
+
+________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
