@@ -633,10 +633,66 @@ Task : Launch an ec2 instance using Cli.
 
 Task 2 : Create an index.html file and upload the file to s3 bucket. While launcging the instance, Use the "userdata" to make it as webserver and get the index.html file to webserver path (/var/www/html/) using userdata.
 
-Task 3 : Configure a Cronjob/taskscheduler job to sync the data between s3 bucket to local path everyday at 06:00 AM.
+Task 3 : Configure a Cron job/taskscheduler job to sync the data between s3 bucket to local path everyday at 06:00 AM.
 
 ________________________________________________________________________________________
 
+D: 13/05/2021
+
+Systems Manager : Patching, Install an applciation.. : "runcommand"
+
+Associate a SSM role for all the instances.. We can manage all these instances from ssm console.. 
+
+Task : You lost the keypair of windows ec2 instance / you forgot the password of tyour windows ec2 instance.. How to Recover this ec2 instance using Systems Manager..??
+
+https://www.youtube.com/watch?v=pQtwl_2D8O8
+
+Task : Download the Putty.msi file and upload it to an s3 bucket.. Install this .msi file in Windows instance using SSM RUnCOmmand option. 
+
+
+_______
+
+Placement groups : How ec2 instances are placed i =n AWS data center. 
+
+Cluster PG : 
+Partition PG : 
+Spread PG : 
+
+
+Lightsail : SaaS : Get a website with simple clicks..
+
+______
+
+Metadata : Data About the data.. 
+
+You have an ec2 instance, and you want to know metadata about that running ec2 instance.. We can use Instance metadata URL..
+
+curl http://169.254.169.254/latest/meta-data/local-ipv4
+http://169.254.169.254/latest/meta-data/
+
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+iam/
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
 
 
 
