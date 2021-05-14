@@ -1,0 +1,43 @@
+Route53 : AWS DNS (Domain Naming System/service) Service : Maps the FQDN Name to IP Address and IP address to Fully Qualified Domain Name.
+
+R53 used to map domain names to AWS resources (i.e; ec2, s3 static website, elb, benastalk, cloudfront)
+
+DOmain Name : We can get a Domain name from Domain Registrers.  GoDaddy, bigrock, Freenom, aws r53..
+
+FreeNom : GIves us a free domain name.
+
+Step 1 : Create a HostedZone in AWS Environment.  (hostedzone name = Domain Domain)
+When we create HostedZOne, We will get 2 Records.. NS (name Server) and SOA (Start of Authority)
+
+NS Records need to be configured at Domain Registrer..  Then only domain traffic comes AWS environment.
+
+
+A Record : Address Record :   DOmain Name <--> IP Address
+Alias Record : AWS Owned Record : Intelligent record. it detect changes happening in backend.
+
+--> In AWS, We always use A record along with the Alias Record.
+
+MX Record : Mail Exchange record
+CNAME : Cananical Name
+TXT Record : Text Record
+PTR Record : pointer Record
+
+
+Routing Policy : 
+Simple RP : 
+Weighted RP : The weight can be a number between 0 and 255.
+Latency RP : 
+Geo Location RP : 
+Failover RP : Primary & Secondary
+MultiValue Answer RP : 
+
+
+Primary : NV	: create a health Check and associate with primary
+Secondary : Mumbai
+
+
+Creating a HostedZOne Cost us $0.50 / Month.
+
+
+
+
