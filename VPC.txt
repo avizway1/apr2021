@@ -73,5 +73,73 @@ Private SUbnet : NonInternet facing subnet.. our resources are secured.. We run 
 https://www.davidc.net/sites/default/subnets/subnets.html
 
 
+_______________________________________________________________________________________
+
+D: 18/05/2021
+
+Step 1 : Create a VPC (Name: CustomVPC, CIDR : 192.168.0.0/16)
+
+Step 2 : Create SUbnets within CustomVPC
+
+Public Subnet : ap-south-1a : 192.168.0.0/19
+Private Subnet : ap-south-1b : 192.168.32.0/19 
+
+Step 3 : Create an Internet Gateway and associate with "CustomVPC"
+** One VPC can contains only one Internet Gateway.
+
+Step 4 : Create RouteTables accordingly and perform subnet association.
+
+Create a Routetable with name "PublicRoute" :  Add a Route : 0.0.0.0/0 --> "INternetGateway".. Navigate to Subnet Association, Associate "Public Subnet"
+
+Create a Routetable with name "PrivateRoute" : Navigate to Subnet Association, Associate "Private Subnets".
+
+** If you find any route Via InternetGateway (igw-*), Then go to SUbnet Association. Those all are public Subnets. 
+
+Step 5 : (Optional)* : Navigate to Subnets, Choose "Public Subnet", Actions, "Modify autoAssign Public P settings", Enable.
+
+
+JUMP Server / Bastian host : Always runs in CustomVPC PublicSubnet. This is used to connect to CustomVPC "Private SUbnet" ec2/rds instances.
+
+_____
+
+How to Provide Internet Access to the "Private Subnet" instances.!!
+For patching purpose / TO access external internet endpoints.. 
+
+**COST US for Elastic IP Address. (Make sure you release EIP after deleting NAT Gateway).
+NAT Gateway : NAT Gateway Designed to provide "interenet" to all the private subnet instances. THis always runs in "Public Subnet" of CUstom VPC.
+
+Navigate to "NAT Gateway", create "NAT Gateway". 
+
+** Edit the Required Routetables (Private Route).
+Add a route 0.0.0.0/0 --> NAT Gateway.
+___
+
+We have an Alternative for NAT Gateway = NAT Instance. We don;t use this in Production/enterprise environments. **Use this for practice purpose.
+
+NAT Instance : NAT Instance is desgined to provide internet to Private subnets resources. THis instance need to launch in "CustomVPC" Public SUbnet.
+
+--> We need to takes care about the NAT instance Security group (http, https : 0.0.0.0/0)
+--> We need to disbale source/destination check.
+--> If internet is bottleneck, We need to increase the instance configuration.
+
+** Edit the Required Routetables (Private Route).
+Add a route 0.0.0.0/0 --> NAT Instance.
+
+____________________________________________
+
+Task : Create a CustomVPC with 2 Public SUbnets (1a) and 2 Private SUbnets (1b). Launch NAT Instance to provide Internet to 2 Private SUbnet Instances.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
