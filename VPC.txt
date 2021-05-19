@@ -129,12 +129,47 @@ ____________________________________________
 
 Task : Create a CustomVPC with 2 Public SUbnets (1a) and 2 Private SUbnets (1b). Launch NAT Instance to provide Internet to 2 Private SUbnet Instances.
 
+________________________________________________________________________________________
+
+D: 19/05/2021
 
 
+AWS Flow Logs : Logging option at VPC Level / SUbnet Level.
+--> We can store logs into S3 Bucket (or) Cloudwatch Logs Group.
+
+AWS NACLs : FIrewall at Subnet Level.
+--> unlike Security groups, We can ALLOW/DENY traffic at NACLs level.
+--> Along with VPC, we will get a Default NACL, that allows all the traffic.
+--> All subnets part of this Default NACL.
+--> One Subnet can be part of the One Network ACL at a time.
+
+--> Newly created NACLs won't allow any traffic.
+--> We need to open required inbound and outbound port numbers.
+--> We need to open Ehemeral ports in NACL (1024-65535). (temp ports).
+
+--> ALways, Lowest RULE number have highest priority.
 
 
+VPC Peering : Used to enable communication between MultipleVPCs. 
+_____________
+
+Requester VPC : Who request to establish the communicaiton.
+Accepter VPC : WHo need to accept the communication request. : 
+--> In same region another VPC.
+--> ANother VPC is in ANother Region. (Region, VPC-ID)
+--> Another VPC is in Another AWS Account same region. (12 digit acc id, VPC-id)
+--> ANother VPC is in ANother AWS Account, Another Region. (12 digit acc id, VPC-id. region)
+
+--> Make sure you modify the routetables accordingly.
+
+In Req VPC, Accepter CIDR block should be added via Peering connection ID (pcx-*)
+In Acc VPC, Requester CIDR block should be added via Peering connection (pcx-*)
+
+Req VPC : ap-south-1, vpc-0ac73a295bb8527bb, 192.168.0.0/16
+Acc VPC : us-east-1, vpc-0c84f896a6c0bb6fe, 172.31.0.0/16
 
 
+OpenVPN : https://www.youtube.com/watch?v=JSTyjISscNg
 
 
 
