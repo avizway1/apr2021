@@ -70,6 +70,60 @@ Task : Launch postgresql in CustomVPCs Private Subnet, Launch an ec2 inance in C
 
 Task : Launch mysql in CustomVPCs Private Subnet, Launch an ec2 inance in CustomVPC Public Subnet, Install Mysql workbench.. get connect to mysqlsql rds db instance.
 
+______________________________________________________________________________________
+
+D: 21/05/2021
+
+
+Multi-AZ deployment:  Creates a standby in a different Availability Zone (AZ) to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
+
+ReadReplica : 
+
+Promoting Read Replica : It will breakdown the replication from Primary to replica copy. Repica instance will become as individual instance. We can perform read and write operation.
+--> Once we break the replication, we cannot establish it again. 
+If required we can create another readreplica for the primary db.
+
+
+nslookup dbendpoint
+192.168.20.197 : ap-south-1a
+192.168.58.113 : ap-south-1b
+
+
+
+Amazon Aurora : 5 times better performance and cost is 1/10 th of other comemrcial databases. (NO FREE TIER ELIGIBILITY)
+--> AWS Own database.
+--> Max database size is : 128 TB
+--> We have Mysql Compatable version & PostGreSql compatable version.
+--> Serverless: No backend db instance maangement is required. We need to choose the req configurations. 
+--> Provisioned (Server)s : Just like RDS, we will get backend db instance.
+--> We can create 15 low latency read Replicas for Aurora db.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
