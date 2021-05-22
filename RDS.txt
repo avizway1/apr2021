@@ -98,6 +98,64 @@ Amazon Aurora : 5 times better performance and cost is 1/10 th of other comemrci
 --> Provisioned (Server)s : Just like RDS, we will get backend db instance.
 --> We can create 15 low latency read Replicas for Aurora db.
 
+________________________________________________________________________________________
+
+D: 22/05/2021
+
+Backup : Snapshot 
+
+Automated Snapshots / System Snapshots : Create automatically on our RDS instances. We cannot delete these snapshots. 
+--> If required we can reduse the Backup retention period. (Defualt 7, Max 35 Days)
+
+Manual Snapshots : We can create a snapshot manually. We need to delete it manaully, along with rds instance it won;t delete.
+
+RDS db Instance : Create a Snapshot and we can perform below operations.
+You want another database with same data/settings.
+You want to copy it to another Region in same aws account.
+You want to share it to another AWS account.
+You want to make it public.
+
+We can export this snapshot to S3 platform, when required we can import from s3. 
+
+RDS Restoration is "point-in-time" recovery/restoration.
+RDS restoration is not an Inplace restoration, When we are restoring, we will get a new RDS instance.
+
+_____________________
+
+DynamoDB : Serverless architecture : NOSQL database service..
+--> SIngle digit millisecond latency at any scale.
+--> FOr mobile applications, iot, ad-tech applicaiton.. 
+--> We can choose how many read capacity units and Write capacity units you required for the rds instance.
+--> We can increase these values on the go. Without any downtime.
+--> We can take backup and initiate Restorebackup when required.
+
+DAX : Dynamodb ACcelerator : In-Memory caching solutions for Dynamodb.
+
+______
+
+Elasticache : THis is a In-memory caching solution for RDS. It support two opensource caching engines.
+--> memCacheD
+--> Redis
+
+______
+
+Amazon Redshift : AWS datawarehousing solutions. We can have large set of data in this redshift service. We can use query services to query the data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
