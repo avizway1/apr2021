@@ -1,0 +1,96 @@
+DMS : Database Migration Service : 
+
+Homogenious migration : mysql --> DMS Cluster --> mysql
+Heterogenius migration : db2 --> DMS Cluster + AWS Schema Convertion tool --> AWS RDS 
+
+
+DMS : SOurce connection information
+Destination connection information
+Launch DMS instance.. Test the connection to SOurce and destination.. 
+Create a job and replicate the data
+_____
+
+Task : Launch 1 mysql rds instance... and connect to it.. import the given database.. 
+Launch another mysql rds instance.. Keep it empty.. 
+
+Using DMS migrate the database from rds instance 1 to rds instance 2.
+_____
+
+SMS : Server Migration Service : 
+--> CloudEndure
+
+What Server we want to migrate to aws, Install CLoudendure Agent --> Cloudendure screen create a task and test the connection --> Launch migration instance in AWS environment --> Run the migration task.. We will get an AMI --> Launch instance from AMI. 
+
+Database migration : https://www.youtube.com/watch?v=iRhJDGp-ew8
+SMS with VMWARE : https://www.youtube.com/watch?v=Vx9lRRY-shg
+Cloudendure migration : https://www.youtube.com/watch?v=8xf1RpPdcHs
+azure to aws migration : https://www.youtube.com/watch?v=bdaHMRqCBkg
+
+_____
+
+Cloudtrail : logging service in aws environment. Enabled by defaultly, It can store last 90 days activities.. If we want to store for unlimited days, Need to "create a trail" to s3 bucket.
+
+** Realtime : We enable trail for all accounts in one AWS Logging account. If any external auditor visits, we can provide access on only logging account.
+In Real env: We create a trail for Management, another trail for data and insights.
+
+Management events : Capture management operations performed on your AWS resources.
+Data events : Log the resource operations performed on or within a resource. (Lambda, Dynamodb and S3)
+Insights events : Identify unusual activity, errors, or user behavior in your account.
+
+____
+
+AWS COnfig : Aws config works along with Cloudtrail service.. An Inventory service in AWS environment.. 
+--> We can setup Compliance standards for our AWS environemnt using Config.
+Ex: 
+S3 Public access buckets : Non_Compliance resource 
+RDS Snapshot public : 
+ACM : Expire in 14 days : 
+____
+
+AWS Trusted Advisor : Based on our AWS acount support plan trsuted advisor gives suggestions. (Basic SP / Developer SP we won;t get all trusted advisor checks).. 
+--> Cost Optimization
+--> Performance
+--> Security
+--> Fault Tolerance
+--> Service Limits
+
+______________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
