@@ -56,6 +56,62 @@ AWS Trusted Advisor : Based on our AWS acount support plan trsuted advisor gives
 
 ______________________________________________________________________________________
 
+D: 25/05/2021
+
+Certificate Manager : Secure over http / https. : SSL/TLS
+
+ACM : Amazon Certificate Manager : TO generate and manage the ssl/tls cert. 
+
+TO generate an SSL/TLS cert, we need to have a Domain name, At hostedzone we need to create a record.
+
+http to https redirection : https://raw.githubusercontent.com/avizway/redirection/master/httptohttps
+
+____
+
+AWS Cloudfront : AWS CDN Service (Content Delivery Network) : Akamai, cloudflair..
+--> CLoudfront have a feature to protect our resources from DDoS attack.
+
+To get the latest data from the Origin / To clear the cache from Edge location, We can perform "Invalidation".
+
+Cache and origin request settings : Use legacy cache settings
+
+Default TTL : 86,400 Sec (1 Day)'
+Max : 365 Days
+
+We must create SSL Cert in N Virginia to map with cloudfront distribution. 
+
+--> Based on endcustomer geo location, we can whitelist/blocklist the data.
+
+_____
+
+AWS Shiled / AWS Shieled advanced : Designed to protect our resources from DDoS Attack. 
+
+Shield Enabled for all the aws account. 
+Shield advanced cost us 3000$/Month.. AWS Team monitor the DDoS attack/traffic.
+
+___
+
+AWS WAF (Web Application Firewall) : We can create rules in WAF and apply on top of Application Load balancer / Cloudfront / Api gateway.
+
+___
+
+task : Launch an ec2 instance, make it as webserver.. Launch elb, generate certificate, and map cert to elb and same domain map in Route53 and configure the http to https redirection.
+
+Task 2 : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
