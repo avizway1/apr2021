@@ -97,7 +97,83 @@ ___
 
 task : Launch an ec2 instance, make it as webserver.. Launch elb, generate certificate, and map cert to elb and same domain map in Route53 and configure the http to https redirection.
 
-Task 2 : 
+_______________________________________________________________________________________
+
+D: 26/05/2021
+
+AWS Inspector : It used to analyse the instance health status including OS level.
+(NO FREE TIER ELIGIBILITY)..
+
+Sprint : 2 weeks : 
+
+Inspector agent need to install in our ec2 instance.. We can install manaually.. We can use Systems Manager. 
+
+--> Common Vulnerabilities and Exposures-1.1
+--> CIS Operating System Security Configuration Benchmarks-1.0
+--> Network Reachability-1.1
+--> Security Best Practices-1.0
+
+_____________________________________
+
+Application Services : 
+
+SNS : SImple Notifications Service : 
+--> We can create a Topic, We can add subscribers (email, website endpoint, sqs, mobile). 
+--> Subscriber need to confirm the subscription. 
+--> Push based messaging service. 
+
+SNS also supports Push notifications service. Works based on mobile operating systems. 
+
+__
+
+SQS : Simple Queue service : pull based messeging service. 
+Ex: AutoScaling group works with sqs service. 
+
+
+--> Standard 
+At-least-once delivery, message ordering isn't preserved
+At-least once delivery
+Best-effort ordering
+
+--> FIFO (Name should end with .fifo) 
+First-in-first-out delivery, message ordering is preserved
+First-in-first-out delivery
+Exactly-once processin
+
+Maximum message size : 256 kb  (AWS cost us based on chunks)
+1 chunk = 64 kb..   
+
+1 million req under free tier eligibility.
+
+__________
+
+SES : Simple Email Service : If we want to send messeges on behalf of another email / domain name, We can use SES service. 
+
+--> For bulk email sending, we need to use another service "Amazon pinpoint".
+_________
+
+
+
+https://www.udemy.com/course/linuxwithavinash/?couponCode=MAY1AVINASH
+
+https://www.udemy.com/course/gitbyavinash/?referralCode=F7D62CDB4D61EADE1CC7
+
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
+
+
+Quiz 1 : Slack channel
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
