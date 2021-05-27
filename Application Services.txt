@@ -163,6 +163,48 @@ https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
 
 Quiz 1 : Slack channel
 
+________________________________________________________________________________________
+
+D: 27/05/2021
+
+Codecommit
+CodeDeploy
+Codepipeline
+codebuild
+
+"S3/codecommit/git" --> Deploy to "ElasticBeanstalk"
+
+IDE within AWS : Cloud9
+
+_________________________________________________________
+
+AWS Lambda : Serverless architecture. 
+--> Lambda performance depends on memory configurations. 
+
+--> Python
+--> .net core
+--> java
+--> go
+--> ruby
+--> Node.js
+
+Lambda-canary : It open the required website and look for the string we have given.
+
+google.com --> Google
+
+--> Incresing the memory and timeout values.
+--> Changing the required [permissions on lambda associated roles. 
+--> Can we run lambda within a VPC..?? YES
+	--> FOr Lambda role Make sure you associate "AWSLambdaVPCAccessExecutionRole"
+
+
+task : Am sharing some lambda functions... Deploy the lambda functions and test it. 
+
+
+
+
+
+
 
 
 
